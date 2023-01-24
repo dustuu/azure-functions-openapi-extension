@@ -28,4 +28,12 @@ namespace Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes
         /// </summary>
         public virtual bool Deprecated { get; set; }
     }
+
+    public class OpenApiRequestBodyAttribute<T> : OpenApiRequestBodyAttribute
+    {
+        public OpenApiRequestBodyAttribute(string contentType)
+            : base(contentType, typeof(T))
+        {
+        }
+    }
 }

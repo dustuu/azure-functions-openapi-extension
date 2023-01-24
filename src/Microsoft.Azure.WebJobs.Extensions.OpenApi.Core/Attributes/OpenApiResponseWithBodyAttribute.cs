@@ -42,4 +42,21 @@ namespace Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes
         /// </summary>
         public virtual bool Deprecated { get; set; }
     }
+
+    public class OpenApiResponseWithBodyAttribute<T> : OpenApiResponseWithBodyAttribute
+    {
+        public OpenApiResponseWithBodyAttribute(HttpStatusCode statusCode, string contentType)
+            : base(statusCode, contentType, typeof(T))
+        {
+        }
+    }
+
+    public class OpenApiResponseWithBodyAttribute<T1, T2> : OpenApiResponseWithBodyAttribute<T1>
+    {
+        public OpenApiResponseWithBodyAttribute(HttpStatusCode statusCode, string contentType)
+            : base(statusCode, contentType)
+        {
+            this.CustomHeaderType = typeof(T2);
+        }
+    }
 }
