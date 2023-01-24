@@ -48,6 +48,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes
         public OpenApiResponseWithBodyAttribute(HttpStatusCode statusCode, string contentType)
             : base(statusCode, contentType, typeof(T))
         {
+
         }
     }
 
